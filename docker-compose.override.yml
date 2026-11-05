@@ -1,0 +1,13 @@
+# Development settings. Docker Compose loads this file automatically
+# on top of docker-compose.yml when you run `docker compose up`.
+#
+# To run WITHOUT dev mode (like production):
+#   docker compose -f docker-compose.yml up -d --build
+
+services:
+  backend:
+    # Restart the server automatically whenever a file changes
+    command: npm run dev
+    volumes:
+      # Link your local source code into the container (live edits)
+      - ./backend/src:/app/src
