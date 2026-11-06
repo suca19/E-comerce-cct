@@ -9,5 +9,9 @@ services:
     # Restart the server automatically whenever a file changes
     command: npm run dev
     volumes:
-      # Link your local source code into the container (live edits)
-      - ./backend/src:/app/src
+      # Share the whole backend folder with the container (live edits,
+      # and `npm install` inside the container updates package.json here)
+      - ./backend:/app
+      # ...but keep node_modules INSIDE the container, built with the
+      # container's Node version. Your machine's node_modules is never used.
+      - /app/node_modules
