@@ -73,4 +73,8 @@ async function login(req, res) {
     res.status(500).json({ error: "Failed to log in" });
   }
 }
-module.exports = { register, login };
+
+function me(req, res) {
+  res.json({ user: req.user });
+}
+module.exports = { register, login, me };

@@ -3,7 +3,7 @@ const cors = require("cors");
 
 const apiRoutes = require("./routes/api");
 const userRoutes = require("./routes/users");
-const authRoutes = require("./routes/auth")
+const authRoutes = require("./routes/auth");
 const app = express();
 
 // Middleware
