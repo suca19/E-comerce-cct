@@ -10,6 +10,7 @@ const pool = mysql.createPool({
   database: process.env.DB_NAME || "E_commerce_cct",
   waitForConnections: true,
   connectionLimit: 10,
+  decimalNumbers: true,
 });
 
 module.exports = pool;

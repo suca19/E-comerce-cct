@@ -15,4 +15,11 @@ async function findById(id) {
   return rows[0];
 }
 
-module.exports = { findAll, findById };
+async function findByIds(ids) {
+  const [rows] = await db.query(
+    "select ProductID, Name, Description, Price, ImageUrl from products where ProductID in (?)",
+    [ids],
+  );
+  return rows;
+}
+module.exports = { findAll, findById, findByIds };
